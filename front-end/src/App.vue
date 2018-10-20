@@ -9,6 +9,11 @@
   import 'minireset.css'
   import '@/assets/scss/global.scss'
   export default {
-    name: 'appContainer'
+    name: 'appContainer',
+    data() {
+      return {
+        user: null
+      }
+    }
   }
 </script>

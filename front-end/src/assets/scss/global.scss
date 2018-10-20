@@ -1,1 +1,7 @@
 @import "./vars.scss";
+
+html,body,#app,.page {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+}

@@ -27,8 +27,12 @@ structure = {
     }
 }
 
+print(json.dumps(structure))
+
 client = MongoClient()
 db = client.rooted-vocab
+words = db.words
+
 
 # call this for different JSON files, like for the roots and words
 def load_local(json_file):

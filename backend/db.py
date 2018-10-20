@@ -1,7 +1,9 @@
+import json
+
 # JSON Structure
 
 structure = {
-    "words": [
+    "words": {
         "biology": {
             "roots": [
                 "bio",
@@ -16,10 +18,12 @@ structure = {
             ],
             "definition": "The study of the chemical substances and vital processes occurring in living organisms; biological chemistry; physiological chemistry."
         }
-    ],
-    "roots": [
+    },
+    "roots": {
         "bio": "Life",
         "logy": "The study of",
         "chem": "Small Atom Things"
-    ]
+    }
 }
+
+print(json.dumps(structure))

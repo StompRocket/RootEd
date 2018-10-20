@@ -30,7 +30,7 @@ structure = {
 print(json.dumps(structure))
 
 client = MongoClient()
-db = client.rooted-vocab
+db = client.rootedvocab
 words = db.words
 
 

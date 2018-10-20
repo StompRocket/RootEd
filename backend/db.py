@@ -1,4 +1,5 @@
 import json
+from pymongo import MongoClient
 
 # JSON Structure
 
@@ -26,4 +27,10 @@ structure = {
     }
 }
 
-print(json.dumps(structure))
+client = MongoClient()
+db = client.rooted-vocab
+
+# call this for different JSON files, like for the roots and words
+def load_local(json_file):
+    for i in json.loads(json_file):
+        yield i

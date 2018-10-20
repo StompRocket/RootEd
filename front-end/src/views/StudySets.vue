@@ -1,5 +1,7 @@
 <template>
-    
+    <div class="page sets">
+      sets
+    </div>
 </template>
 
 <script>

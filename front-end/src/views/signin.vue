@@ -11,9 +11,9 @@
     name: "signin",
     mounted() {
       let provider = new firebase.auth.GoogleAuthProvider();
-      firebase.auth().onAuthStateChanged(function(user) {
+      firebase.auth().onAuthStateChanged((user) => {
         if (user) {
-         this.$router.push('/')
+         this.$router.push('/sets')
         } else {
           firebase.auth().signInWithRedirect(provider);
         }

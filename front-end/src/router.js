@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import SignIn from './views/signin.vue'
-import studySets from './views/studySets.vue'
+import studySets from './views/StudySets.vue'
 Vue.use(Router)
 
 export default new Router({

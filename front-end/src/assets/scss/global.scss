@@ -1,7 +1,20 @@
 @import "./vars.scss";
 
-html,body,#app,.page {
+html, body, #app, .page {
   height: 100%;
   width: 100%;
   font-size: 100%;
+  color: $primary;
+
+}
+
+.nav__brand {
+  display: flex;
+  @include headingFont;
+  font-weight: bold;
+  font-size: 2rem;
+  @include shadow--small;
+  padding: 1%;
+  color: $primary;
+  text-decoration: none;
 }

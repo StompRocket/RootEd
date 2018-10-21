@@ -2,6 +2,7 @@
   <div class="page sets">
    <div v-for="set in sets" :key="set.id" class="set">
      <h1 class="set__name">{{set.name}}</h1>
+     <hr>
      <router-link :to="'/study/'+set.id">Learn Set</router-link>
      <div class="set__rootContainer" v-for="(rootData, root) in set.data.roots">
        <div class="set__root__wordsContainer">

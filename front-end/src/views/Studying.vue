@@ -9,9 +9,8 @@
       <h1 class="study__heading">Bio: <b class="dark">Life</b></h1>
 
       <div clsas="stick__bottom">
-        <a class="btn btn__dark">Study Again</a>
-        <br>
-        <a class="btn">I got it right</a>
+        <button class="btn btn__dark">Study Again</button>
+        <button class="btn">I got it right</button>
       </div>
     </div>
   </div>

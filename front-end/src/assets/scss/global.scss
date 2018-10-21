@@ -113,6 +113,7 @@ html, body, #app, .page {
   background-color: $highlight;
   font-weight: bold;
   font-size: 1.6em;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   cursor: pointer;
   @include transition;
   &:hover {
@@ -150,7 +151,7 @@ html, body, #app, .page {
 }
 
 .study__heading {
-  font-size: 10rem;
+  font-size: 6rem;
   font-weight: 700;
   color: $highlight;
 }

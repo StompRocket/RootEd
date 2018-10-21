@@ -9,9 +9,11 @@
       <h1 class="study__heading">{{current.root}}: <b class="dark">{{current.def}}</b></h1>
 
       <div clsas="stick__bottom">
+
         <a class="btn btn__dark" @click="studyAgain">Study Again</a>
         <br>
         <a class="btn" @click="right">I got it right</a>
+
       </div>
     </div>
   </div>

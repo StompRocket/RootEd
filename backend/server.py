@@ -42,4 +42,4 @@ def set_data(set_id):
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 8080))
-    run(host='127.0.0.1', port=port, debug=True)
+    app.run(host='127.0.0.1', port=port, debug=True)

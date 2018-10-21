@@ -25,7 +25,7 @@
     data() {
       return {
         set: {},
-        combined: [],
+        combined: {},
         current: []
       }
     },
@@ -34,33 +34,49 @@
       fetch(this.$parent.baseURL + '/set/' + this.$route.params.id).then(response => response.json()).then(data => {
         this.set = data;
         this.$parent.loading = false
-        this.compute()
-        this.current = this.getWeightedQuestion()
+        this.run()
       })
     },
     methods: {
+      run() {
+        this.compute()
+        this.current = this.getWeightedQuestion()
+
+      },
       getWeightedQuestion() {
         let weighted = []
         for (let index in this.combined) {
           let item = this.combined[index]
-          console.log(item)
+          //console.log(item)
           for (let i = 0; i < item.weight; i++) {
             weighted.push(item)
           }
 
         }
-        console.log(weighted)
+        // console.log(weighted)
         let randomNumber = Math.floor(Math.random() * (weighted.length - 1)) + 0
         let item = weighted[randomNumber]
-        console.log(item)
+        //console.log(item)
         return item
       },
       studyAgain() {
         if (this.current.type === 'root') {
           this.combined[this.current.root].weight++;
-          console.log(this.combined[this.current.root].weight)
+          console.log(this.combined[this.current.root].weight, this.combined[this.current.root])
           fetch(this.$parent.baseURL + '/root/' + this.current.root).then(res => res.json()).then(wordList => {
-            console.log(wordList)
+            // console.log(wordList)
+            for (let index in wordList) {
+              let word = wordList[index]
+              if (this.combined[word]) {
+                console.log('weight decreased', word)
+                this.combined[word].weight--;
+              }
+              // console.log(word, this.combined[word].weight)
+
+              //console.log(this.combined[word].weight)
+
+            }
+            this.run()
           })
         }
       },
@@ -76,7 +92,10 @@
             weight: 5,
             type: 'root'
           }
-          this.combined[root] = rootData
+          if (root != '') {
+            this.combined[root] = rootData
+          }
+
         }
         for (let word in this.set.words) {
           let def = this.set.words[word].definition

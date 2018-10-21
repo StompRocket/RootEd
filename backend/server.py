@@ -1,5 +1,5 @@
 from flask import Flask
-from flask_cors import CORS, cross_origin
+from flask_cors import CORS
 import json
 import db
 import os
@@ -8,12 +8,10 @@ app = Flask(__name__)
 CORS(app)
 
 @app.route("/")
-@cross_origin()
 def return_all():
     return json.dumps(db.dump())
 
 @app.route("/possible/<word>")
-@cross_origin()
 def get_possible_defs(word):
     # search through this word's roots and choose
     # fairly similar words
@@ -57,7 +55,6 @@ def data_from_words(words):
         "roots": rroots}
 
 @app.route("/words/<words>")
-@cross_origin()
 def return_json(words):
     words = words.split("-")
     return data_from_words(words)
@@ -73,7 +70,6 @@ def set_data(set_id):
     return json.dumps(data_from_words(db.get_study_set(set_id)))
 
 @app.route("/root/<root>")
-@cross_origin()
 def get_root_words(root):
     return json.dumps(db.get_words_with_root(root))
 

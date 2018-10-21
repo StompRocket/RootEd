@@ -73,6 +73,7 @@
 
         if (i) {
           this.correct = true
+
         } else {
           this.userDef = answer
           this.correct = false

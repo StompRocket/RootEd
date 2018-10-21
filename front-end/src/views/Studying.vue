@@ -1,6 +1,6 @@
 <template>
   <div class="page study">
-    <div id="flashcard">
+    <div v-if="current.type == 'root'" id="flashcard">
       <div class="full_height__minus_nav place_center">
         <h1 class="study__heading">{{current.root}}</h1>
         <b class="stick__bottom light">Scroll to view definition</b>
@@ -18,14 +18,14 @@
         </div>
       </div>
     </div>
-    <div id="quiz">
+    <div v-if="current.type == 'word'" id="quiz">
       <div class="full_height__minus_nav place_center">
-        <h1 class="study__heading dark">Current Word</h1>
-        <input class="text_box" placeholder="Definition">
+        <h1 class="study__heading dark">{{current.word}}</h1>
+        <input v-model="userDef" class="text_box" placeholder="Definition">
       </div>
 
       <div class="full_height place_center">
-        <h1 class="study__heading">{{current.root}}: <b class="dark">{{current.def}}</b></h1>
+        <h1 class="study__heading">{{current.word}}: <b class="dark">{{current.def}}</b></h1>
 
         <div clsas="stick__bottom">
 
@@ -47,7 +47,8 @@
         set: {},
         combined: {},
         current: [],
-        firstRun: true
+        firstRun: true,
+        userDef: ''
       }
     },
     created() {
@@ -60,7 +61,7 @@
     },
     methods: {
       run() {
-        window.scrollTo(0,0)
+        window.scrollTo(0, 0)
         if (this.firstRun) {
           this.compute()
           this.firstRun = false
@@ -92,7 +93,7 @@
       studyAgain() {
         if (this.current.type === 'root') {
           this.combined[this.current.root].weight++;
-         // console.log(this.combined[this.current.root].weight, this.combined[this.current.root])
+          // console.log(this.combined[this.current.root].weight, this.combined[this.current.root])
           fetch(this.$parent.baseURL + '/root/' + this.current.root).then(res => res.json()).then(wordList => {
             // console.log(wordList)
             for (let index in wordList) {
@@ -111,7 +112,25 @@
         }
       },
       right() {
+        if (this.current.type === 'root') {
+          this.combined[this.current.root].weight--;
+          // console.log(this.combined[this.current.root].weight, this.combined[this.current.root])
+          fetch(this.$parent.baseURL + '/root/' + this.current.root).then(res => res.json()).then(wordList => {
+            // console.log(wordList)
+            for (let index in wordList) {
+              let word = wordList[index]
+              if (this.combined[word]) {
+                //console.log('weight decreased', word)
+                this.combined[word].weight++;
+              }
+              // console.log(word, this.combined[word].weight)
 
+              //console.log(this.combined[word].weight)
+
+            }
+            this.run()
+          })
+        }
       },
       compute() {
         for (let root in this.set.roots) {

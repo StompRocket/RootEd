@@ -21,20 +21,20 @@
     <div v-if="current.type == 'word'" id="quiz">
       <div class="full_height__minus_nav place_center">
         <h1 class="study__heading dark">{{current.word}}</h1>
-        <div class="study__optionsGrid">
-          <a class="studyOption btn" v-for="answer in current.answers">{{answer}}</a>
+        <div v-if="answers" class="study__optionsGrid">
+          <div class="study__optionContainer" v-for="(i, answer) in answers">
+            <button @click="evaluate(answer, i)" class="studyOption btn">{{answer}}</button>
+          </div>
         </div>
 
       </div>
 
       <div v-if="submited" class="full_height place_center">
         <h1 class="study__heading">{{current.word}}: <b class="dark">{{current.def}}</b></h1>
+        <h2 class="study__wrong" v-if="userDef">You Said: {{userDef}}</h2>
+        <div>
 
-        <div class="stick__bottom">
-
-          <a class="btn btn__dark" @click="studyAgain">Study Again</a>
-          <br>
-          <a class="btn" @click="right">I got it right</a>
+          <a class="btn" @click="run">Continue</a>
 
         </div>
       </div>
@@ -50,9 +50,11 @@
         set: {},
         combined: {},
         current: [],
+        answers: [],
         firstRun: true,
-        userDef: '',
-        submited: false
+        userDef: false,
+        submited: false,
+        correct: true
       }
     },
     created() {
@@ -64,8 +66,17 @@
       })
     },
     methods: {
-      evaluate(answer) {
+      evaluate(answer, i) {
+        console.log(answer, i)
+        this.answers = []
+        this.submited = true
 
+        if (i) {
+          this.correct = true
+        } else {
+          this.userDef = answer
+          this.correct = false
+        }
       },
       run() {
         window.scrollTo(0, 0)
@@ -74,6 +85,7 @@
           this.firstRun = false
           console.log('computning')
         }
+        this.userDef = false
 
         this.current = this.getWeightedQuestion()
 
@@ -97,16 +109,16 @@
         if (item.type == 'word') {
           fetch(this.$parent.baseURL + '/possible/' + item.word).then(res => res.json()).then(possibleDefs => {
             console.log(possibleDefs)
+
             item.answers = possibleDefs
-            this.current.answers = []
-            for (let index in possibleDefs) {
-              this.current.answers.push(possibleDefs[index])
-            }
+
+            this.answers = possibleDefs
 
           })
-
+          return item
+        } else {
+          return item
         }
-        return item
 
 
         //console.log(item)

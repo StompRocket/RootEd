@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="flashcard-container">
+    <div class="flashcard-container" v-if="curent.def">
       <flashcard :front="curent.root" :back="curent.def"/>
     </div>
     <div class="controls">

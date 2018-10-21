@@ -46,7 +46,8 @@
       return {
         set: {},
         combined: {},
-        current: []
+        current: [],
+        firstRun: true
       }
     },
     created() {
@@ -59,7 +60,13 @@
     },
     methods: {
       run() {
-        this.compute()
+        window.scrollTo(0,0)
+        if (this.firstRun) {
+          this.compute()
+          this.firstRun = false
+          console.log('computning')
+        }
+
         this.current = this.getWeightedQuestion()
 
       },
@@ -76,19 +83,22 @@
         // console.log(weighted)
         let randomNumber = Math.floor(Math.random() * (weighted.length - 1)) + 0
         let item = weighted[randomNumber]
+        if (item == this.current) {
+          item = weighted[randomNumber]
+        }
         //console.log(item)
         return item
       },
       studyAgain() {
         if (this.current.type === 'root') {
           this.combined[this.current.root].weight++;
-          console.log(this.combined[this.current.root].weight, this.combined[this.current.root])
+         // console.log(this.combined[this.current.root].weight, this.combined[this.current.root])
           fetch(this.$parent.baseURL + '/root/' + this.current.root).then(res => res.json()).then(wordList => {
             // console.log(wordList)
             for (let index in wordList) {
               let word = wordList[index]
               if (this.combined[word]) {
-                console.log('weight decreased', word)
+                //console.log('weight decreased', word)
                 this.combined[word].weight--;
               }
               // console.log(word, this.combined[word].weight)

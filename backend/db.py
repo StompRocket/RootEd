@@ -60,21 +60,22 @@ def get_word_definition(word):
     try:
         return words.find_one({"word": word})["definition"]
     except TypeError:
+        print(word, "THREW AN ERROR")
         return ""
 
 def get_word_roots(word):
-    print("WORD {}".format(word))
     try:
         for root in words.find_one({"word": word})["roots"]:
             yield root
     except TypeError:
+        print(word + " THREW AN ERROR")
         yield ""
 
 def get_root_definition(root):
-    print("ROOT{}".format(root))
     try:
         return roots.find_one({"root": root})["definition"]
     except TypeError:
+        print(root, "THREW AN ERROR")
         return ""
 
 def get_study_set(set_id):
@@ -97,3 +98,33 @@ def get_words_with_root(root):
         [ word["word"]
           for word in
           words.find({"roots": root})]))
+
+# this function dumps the entire database.
+# it exists partially because I wanted Python to
+# be above CSS on the github lang bar thing
+# but I have grown to love it as my first born
+# so here it shall stay. This comment also
+# serves as a means of increasing the amount
+# of code in the python files
+def dump():
+    # first one must get everything from the words database
+    all_words = words.find({})
+    # this will then collect all the study sets
+    all_sets = study_sets.find({})
+    # and this here will collect the roots
+    all_roots = roots.find({})
+
+    # next we will combine all of these into a dictionary
+    # by creating a dictionary and passing the above
+    # defined variables as values to the string-literal
+    # keys
+    dump_dict = {
+        "words": all_words,
+        "sets": all_sets,
+        "roots": all_roots
+    }
+    # next we will return this to the caller, since it is
+    # what they requested. It is worth noting that this
+    # will later be stringified with the `stringify`
+    # method in the namespace `json`.
+    return dump_dict

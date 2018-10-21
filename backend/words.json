@@ -1,0 +1,220 @@
+[
+    {
+        "word": "biology",
+        "definition": "the study of living organisms",
+        "roots": [
+            "bio"
+        ]
+    },
+    {
+        "word": "biography",
+        "definition": "An account of a person's life written, composed, or produced by another: a film biography of Adlai Stevenson; an oral biography.",
+        "roots": [
+            "bio",
+            "graph"
+        ]
+    },
+    {
+        "word": "Bionic",
+        "definition": "relating to bionics.",
+        "roots": [
+            "bio"
+        ]
+    },
+    {
+        "word": "Biosynthesis",
+        "definition": "the production of complex molecules within living organisms or cells.",
+        "roots": [
+            "bio"
+        ]
+    },
+    {
+        "word": "Biologist",
+        "definition": "an expert in or student of the branch of science concerning living organisms.",
+        "roots": [
+            "bio"
+        ]
+    },
+    {
+        "word": "Hypercritical",
+        "definition": "excessively and unreasonably critical, especially of small faults.",
+        "roots": [
+            "Hyper"
+        ]
+    },
+    {
+        "word": "Hypersensitive",
+        "definition": "abnormally or excessively sensitive, either psychologically or in physical response.",
+        "roots": [
+            "Hyper"
+        ]
+    },
+    {
+        "word": "Hyperthermia",
+        "definition": "the condition of having a body temperature greatly above normal.",
+        "roots": [
+            "Hyper"
+        ]
+    },
+    {
+        "word": "Hypersonic",
+        "definition": "relating to speeds of more than five times the speed of sound (Mach 5).",
+        "roots": [
+            "Hyper"
+        ]
+    },
+    {
+        "word": "Kilogram",
+        "definition": "the SI unit of mass, equivalent to the international standard kept at Sèvres near Paris (approximately 2.205 lb).",
+        "roots": [
+            "Kilo"
+        ]
+    },
+    {
+        "word": "Kilometer",
+        "definition": "a metric unit of measurement equal to 1,000 meters (approximately 0.62 miles).",
+        "roots": [
+            "Kilo"
+        ]
+    },
+    {
+        "word": "Kilowatt",
+        "definition": "a measure of 1,000 watts of electrical power.",
+        "roots": [
+            "Kilo"
+        ]
+    },
+    {
+        "word": "Kilobyte",
+        "definition": "a unit of memory or data equal to 1,024 (210) bytes.",
+        "roots": []
+    },
+    {
+        "word": "Milligram",
+        "definition": "one thousandth of a gram.",
+        "roots": [
+            "Milli"
+        ]
+    },
+    {
+        "word": "Millimeter",
+        "definition": "one thousandth of a meter (0.039 in.).",
+        "roots": [
+            "Milli"
+        ]
+    },
+    {
+        "word": "Milliwatt",
+        "definition": "one thousandth of a watt.",
+        "roots": [
+            "Milli"
+        ]
+    },
+    {
+        "word": "Milliliter",
+        "definition": "one thousandth of a liter (0.002 pint).",
+        "roots": [
+            "Milli"
+        ]
+    },
+    {
+        "word": "Semiconductor",
+        "definition": "a solid substance that has a conductivity between that of an insulator and that of most metals.",
+        "roots": [
+            "Semi"
+        ]
+    },
+    {
+        "word": "Semiautomatic",
+        "definition": "partially automatic.",
+        "roots": [
+            "Semi"
+        ]
+    },
+    {
+        "word": "Semifinal",
+        "definition": "a game or round immediately preceding the final, the winner of which goes on to the final.",
+        "roots": [
+            "Semi"
+        ]
+    },
+    {
+        "word": "Semisweet",
+        "definition": "(of food) only slightly sweetened.",
+        "roots": [
+            "Semi"
+        ]
+    },
+    {
+        "word": "Semicircle",
+        "definition": "a half of a circle or of its circumference.",
+        "roots": [
+            "Semi"
+        ]
+    },
+    {
+        "word": "Photograph",
+        "definition": "a picture made using a camera, in which an image is focused onto film or other light-sensitive material and then made visible and permanent by chemical treatment, or stored digitally.",
+        "roots": [
+            "Graph"
+        ]
+    },
+    {
+        "word": "Seismograph",
+        "definition": "an instrument that measures and records details of earthquakes, such as force and duration",
+        "roots": [
+            "Graph"
+        ]
+    },
+    {
+        "word": "Paragraph",
+        "definition": "a distinct section of a piece of writing, usually dealing with a single theme and indicated by a new line, indentation, or numbering.",
+        "roots": [
+            "Graph"
+        ]
+    },
+    {
+        "word": "Graph",
+        "definition": "a diagram showing the relation between variable quantities, typically of two variables, each measured along one of a pair of axes at right angles.",
+        "roots": [
+            "Graph"
+        ]
+    },
+    {
+        "word": "Pictograph",
+        "definition": "a pictorial symbol for a word or phrase. Pictographs were used as the earliest known form of writing, examples having been discovered in Egypt and Mesopotamia from before 3000 BC.",
+        "roots": [
+            "graph"
+        ]
+    },
+    {
+        "word": "Homophone",
+        "definition": "each of two or more words having the same pronunciation but different meanings, origins, or spelling, e.g., new and knew.",
+        "roots": [
+            "Homo"
+        ]
+    },
+    {
+        "word": "Homosexual",
+        "definition": "(of a person) sexually attracted to people of one's own sex.",
+        "roots": [
+            "Homo"
+        ]
+    },
+    {
+        "word": "Homograph",
+        "definition": "each of two or more words spelled the same but not necessarily pronounced the same and having different meanings and origins",
+        "roots": [
+            "Homo",
+            "Graph"
+        ]
+    },
+    {
+        "word": "Homogeneous",
+        "definition": "of the same kind; alike.",
+        "roots": [
+            "Homo"
+        ]
+    }
+
+]

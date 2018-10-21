@@ -63,13 +63,11 @@ def return_json(words):
     return data_from_words(words)
 
 @app.route("/sets")
-
 @cross_origin()
 def get_set():
     return json.dumps(db.get_sets())
 
 @app.route("/set/<set_id>")
-
 @cross_origin()
 def set_data(set_id):
     return json.dumps(data_from_words(db.get_study_set(set_id)))

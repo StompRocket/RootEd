@@ -7,8 +7,6 @@ name = "pypi"
 pymongo = "*"
 flask = "*"
 flask_cors = "*"
-pyopenssl = "*"
-werkzeug = "*"
 
 [dev-packages]
 pylint = "*"

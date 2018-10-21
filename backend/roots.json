@@ -10,5 +10,21 @@
     {
         "root": "graph",
         "definition": "to write, record"
+    },
+    {
+        "root": "hyper",
+        "definition": "above, beyond, over"
+    },
+    {
+        "root": "kilo",
+        "definition": "a thousand"
+    },
+    {
+        "root": "mili",
+        "definition": "one thousandth"
+    },
+    {
+        "root": "homo",
+        "definition": "same, alike"
     }
 ]

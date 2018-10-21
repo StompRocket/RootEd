@@ -1,6 +1,17 @@
 <template>
   <div class="page study">
+    <div class="full_height__minus_nav place_center">
+      <h1 class="study__heading">Bio</h1>
+      <b class="stick__bottom light">Scroll to view definition</b>
+    </div>
 
+    <div class="full_height place_center">
+      <h1 class="study__heading">Bio: <b class="dark">Life</b></h1>
+
+      <div clsas="stick__bottom">
+        <a class="btn">Continue</a>
+      </div>
+    </div>
   </div>
 </template>
 

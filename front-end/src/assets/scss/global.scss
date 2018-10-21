@@ -5,7 +5,12 @@ html, body, #app, .page {
   width: 100%;
   font-size: 100%;
   color: $primary;
-
+}
+.light {
+  color: $secondary;
+}
+.dark {
+  color: $primary;
 }
 .page {
   height: 90vh;
@@ -56,4 +61,30 @@ html, body, #app, .page {
   &:focus {
     outline: none;
   }
+}
+
+.full_height {
+  min-height: 100vh;
+}
+
+.full_height__minus_nav {
+  min-height: calc(100vh - 10vh - 2rem);
+}
+
+.stick__bottom {
+  position: absolute;
+  left: 50%;
+  bottom: 1rem;
+  transform: translateX(-50%);
+}
+
+.place_center {
+  display: grid;
+  place-items: center center;
+}
+
+.study__heading {
+  font-size: 10rem;
+  font-weight: 700;
+  color: $highlight;
 }

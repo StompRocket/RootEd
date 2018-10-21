@@ -23,19 +23,21 @@
       };
     },
     created() {
+      this.$parent.loading = true
       let setid = this.$route.params.id
       console.log(setid, 'setId')
       console.log(this.$parent.baseURL + '/set/' + setid)
-      fetch(this.$parent.baseURL + '/sets/' + setid).then(response => response.json()).then(data => {
+      fetch(this.$parent.baseURL + '/set/' + setid).then(response => response.json()).then(data => {
         console.log(data)
         this.studySet = data;
         for (let index in this.studySet.roots) {
           this.rootsArray.push({
             name: index,
-            def: this.studySet.roots[index].def,
-            words: this.studySet.roots[index].words
+            def: this.studySet.roots[index],
+            words: this.studySet.roots[index]
           })
         }
+        this.$parent.loading = false
       })
 
 
@@ -96,7 +98,12 @@
     },
     computed: {
       current() {
-        return this.rootsArray[this.flashId]
+        if (!this.$parent.loading) {
+          return this.rootsArray[this.flashId]
+        } else {
+          return false
+        }
+
       }
     }
 

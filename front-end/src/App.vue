@@ -24,7 +24,7 @@
     data() {
       return {
         user: null,
-        baseURL: 'http://178.128.71.36:80',
+        baseURL: 'http://rootedserver.stomprocket.io',
        // baseURL: 'http://localhost:8081',
         loading: false
       }

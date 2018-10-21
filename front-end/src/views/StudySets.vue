@@ -16,76 +16,66 @@
 </template>
 
 <script>
-  import '@/assets/scss/sets.scss'
-  export default {
-    name: 'StudySets',
-    data() {
-      return {
-        sampleAPIReturn: {
-          2345: 'Bio Set',
-          4232: 'Second Set again'
-        },
-        sampleAPISetReturn: {
-          "words": {
-            "biology": {
-              "roots": [
-                "bio",
-                "logy"
-              ],
-              "definition": "The science of life and of living organisms, including their structure, function, growth, origin, evolution, and distribution. It includes botany and zoology and all their subdivisions."
-            },
-            "biochemistry": {
-              "roots": [
-                "bio",
-                "chem"
-              ],
-              "definition": "The study of the chemical substances and vital processes occurring in living organisms; biological chemistry; physiological chemistry."
-            }
+import "@/assets/scss/sets.scss";
+export default {
+  name: "StudySets",
+  data() {
+    return {
+      sampleAPIReturn: {
+        2345: "Bio Set",
+        4232: "Second Set again"
+      },
+      sampleAPISetReturn: {
+        words: {
+          biology: {
+            roots: ["bio", "logy"],
+            definition:
+              "The science of life and of living organisms, including their structure, function, growth, origin, evolution, and distribution. It includes botany and zoology and all their subdivisions."
           },
-          "roots": {
-            "bio": {
-              def: 'life',
-              words: ['biology', 'biochemistry']
-            },
-            "logy": {
-              def: 'the study of',
-              words: ['biology', 'psychology']
-            },
-            "chem": {
-              def: 'small atom thing',
-              words: ['chemistry', 'chemical']
-            }
+          biochemistry: {
+            roots: ["bio", "chem"],
+            definition:
+              "The study of the chemical substances and vital processes occurring in living organisms; biological chemistry; physiological chemistry."
           }
         },
-        sets: {}
-      }
-    },
-    created() {
-      let idList = this.requestIds()
-      console.log(idList)
-      for (let id in idList) {
-        let name = idList[id]
-        console.log(id)
-        this.sets[id] = {
-          id: id,
-          name: name,
-          data: this.requestSets()
+        roots: {
+          bio: {
+            def: "life",
+            words: ["biology", "biochemistry"]
+          },
+          logy: {
+            def: "the study of",
+            words: ["biology", "psychology"]
+          },
+          chem: {
+            def: "small atom thing",
+            words: ["chemistry", "chemical"]
+          }
         }
-      }
-    },
-    methods: {
-      requestIds() {
-
-        return this.sampleAPIReturn
-
-
       },
-      requestSets() {
-
-        return this.sampleAPISetReturn
-
-
-      }
+      sets: {}
+    };
+  },
+  created() {
+    let idList = this.requestIds();
+    console.log(idList);
+    for (let id in idList) {
+      let name = idList[id];
+      console.log(id);
+      this.sets[id] = {
+        id: id,
+        name: name,
+        data: this.requestSets()
+      };
+    }
+  },
+  methods: {
+    requestIds() {
+      return this.sampleAPIReturn;
+    },
+    requestSets() {
+      return this.sampleAPISetReturn;
     }
   }
+};
 </script>

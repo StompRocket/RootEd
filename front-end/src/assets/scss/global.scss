@@ -7,6 +7,25 @@
   padding-left: 10px;
   padding-right: 10px;
 }
+.study__optionsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 2%;
+  width: 70%;
+  .studyOption {
+    margin-top: 2%;
+    display: block;
+    border: none;
+    background: $highlight;
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
 
 /* Mobile first queries */
 

@@ -22,53 +22,27 @@
     name: "StudySets",
     data() {
       return {
-        sampleAPIReturn: {
-          2345: "Bio Set",
-          4232: "Second Set again"
-        },
-        sampleAPISetReturn: {
-          words: {
-            biology: {
-              roots: ["bio", "logy"],
-              definition:
-                "The science of life and of living organisms, including their structure, function, growth, origin, evolution, and distribution. It includes botany and zoology and all their subdivisions."
-            },
-            biochemistry: {
-              roots: ["bio", "chem"],
-              definition:
-                "The study of the chemical substances and vital processes occurring in living organisms; biological chemistry; physiological chemistry."
-            }
-          },
-          roots: {
-            bio: {
-              def: "life",
-              words: ["biology", "biochemistry"]
-            },
-            logy: {
-              def: "the study of",
-              words: ["biology", "psychology"]
-            },
-            chem: {
-              def: "small atom thing",
-              words: ["chemistry", "chemical"]
-            }
-          }
-        },
-        sets: {}
+        sets: []
       };
     },
     created() {
+      this.$parent.loading = true
       fetch(this.$parent.baseURL + '/sets').then(response => response.json()).then(data => {
         console.log(data);
         let idList = data
         for (let id in idList) {
           let name = idList[id];
+          console.log(name)
           console.log(id);
-          this.sets[id] = {
-            id: id,
-            name: name,
-            data: this.requestSets()
-          };
+          fetch(this.$parent.baseURL + '/set/' + id).then(response => response.json()).then(setData => {
+            this.sets.push({
+              id: id,
+              name: name,
+              data: setData
+            })
+            this.$parent.loading = false
+          })
+
         }
       })
 
@@ -77,8 +51,8 @@
       requestIds() {
         return this.sampleAPIReturn;
       },
-      requestSets() {
-        return this.sampleAPISetReturn;
+      requestSets(setid) {
+
       }
     }
   };

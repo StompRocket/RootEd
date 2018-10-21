@@ -1,0 +1,17 @@
+[
+    {
+        "word": "biology",
+        "definition": "the study of living organisms",
+        "roots": [
+            "bio"
+        ]
+    },
+    {
+        "word": "biography",
+        "definition": "An account of a person's life written, composed, or produced by another: a film biography of Adlai Stevenson; an oral biography.",
+        "roots": [
+            "bio",
+            "graph"
+        ]
+    }
+]

@@ -33,6 +33,7 @@ client = MongoClient()
 db = client.rootedvocab
 words = db.words
 roots = db.roots
+study_sets = db.study_sets
 
 # call this for different JSON files, like for the roots and words
 def load_local(json_file):
@@ -51,9 +52,24 @@ for root in load_local("roots.json"):
 for word in load_local("words.json"):
     words.insert_one(word)
 
+for study_set in load_local("sets.json"):
+    study_sets.insert_one(study_set)
+
 def get_word_definition(word):
     return words.find_one({"word": word})["definition"]
 
 def get_word_roots(word):
     for root in words.find_one({"word": word})["roots"]:
         yield root
+def get_root_definition(root):
+    return roots.find_one({"root": root})["definition"]
+
+def get_study_set(set_id):
+    return study_sets.find_one({"id": set_id})["words"]
+
+def get_sets():
+    prot = {}
+    for study_set in study_sets.find({}):
+        prot[study_set["id"]] = study_set["words"]
+
+    return prot

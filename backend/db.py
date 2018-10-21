@@ -89,3 +89,11 @@ def get_sets():
             prot[study_set["id"]] = "Unnamed Set"
 
     return prot
+
+def get_words_with_root(root):
+    # i've been writing too much clojure i indent
+    # like this now e
+    return list(set(
+        [ word["word"]
+          for word in
+          words.find({"roots": root})]))

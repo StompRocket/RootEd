@@ -38,6 +38,10 @@ def get_set():
 def set_data(set_id):
     return json.dumps(data_from_words(db.get_study_set(set_id)))
 
+@app.route("/root/<root>")
+def get_root_words(root):
+    return json.dumps(db.get_words_with_root(root))
+
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 8080))
     app.run(host='127.0.0.1', port=port, debug=True)

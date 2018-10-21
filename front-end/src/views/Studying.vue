@@ -19,7 +19,7 @@
       </div>
     </div>
     <div v-if="current.type == 'word'" id="quiz">
-      <div class="full_height__minus_nav place_center">
+      <div v-if="!submited" class="full_height__minus_nav place_center">
         <h1 class="study__heading dark">{{current.word}}</h1>
         <div v-if="answers" class="study__optionsGrid">
           <div class="study__optionContainer" v-for="(i, answer) in answers">
@@ -67,19 +67,43 @@
     },
     methods: {
       evaluate(answer, i) {
-        console.log(answer, i)
-        this.answers = []
-        this.submited = true
+        console.log(answer, i);
+        this.answers = [];
+        this.submited = true;
 
         if (i) {
           this.correct = true
+          for (let index in this.current.roots) {
+            let root = this.current.roots[index]
+            this.combined[root].weight--;
+            // console.log(this.combined[this.current.root].weight, this.combined[this.current.root])
+            fetch(this.$parent.baseURL + '/root/' + root).then(res => res.json()).then(wordList => {
+              // console.log(wordList)
+              for (let index in wordList) {
+                let word = wordList[index]
+                if (this.combined[word]) {
+                  //console.log('weight decreased', word)
+                  this.combined[word].weight--;
+                }
+                // console.log(word, this.combined[word].weight)
+
+                //console.log(this.combined[word].weight)
+
+              }
+
+            })
+          }
+
 
         } else {
           this.userDef = answer
           this.correct = false
+
         }
+        window.scrollTo(0, document.body.scrollHeight)
       },
       run() {
+        this.submited = false
         window.scrollTo(0, 0)
         if (this.firstRun) {
           this.compute()
@@ -104,7 +128,8 @@
         // console.log(weighted)
         let randomNumber = Math.floor(Math.random() * (weighted.length - 1)) + 0
         let item = weighted[randomNumber]
-        if (item == this.current) {
+        for (let i = 0; i <= 5; i++) {
+          randomNumber = Math.floor(Math.random() * (weighted.length - 1)) + 0
           item = weighted[randomNumber]
         }
         if (item.type == 'word') {

@@ -20,7 +20,7 @@
     data() {
       return {
         user: null,
-        baseURL: 'http://localhost:8081',
+        baseURL: 'http://178.128.71.36:80',
         loading: false
       }
     }

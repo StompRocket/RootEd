@@ -20,21 +20,13 @@
       </div>
     </div>
     <div v-if="current.type == 'word'" id="quiz">
-<<<<<<< HEAD
-      <div class="full_height__minus_nav place_center">
-        <div class="container">
-          <h1 class="study__heading dark">{{current.word}}</h1>
-          <div v-if="answers" class="study__optionsGrid">
-            <div class="study__optionContainer" v-for="(i, answer) in answers">
-              <button @click="evaluate(answer, i)" class="studyOption btn">{{answer}}</button>
-            </div>
-=======
+
       <div v-if="!submited" class="full_height__minus_nav place_center">
         <h1 class="study__heading dark">{{current.word}}</h1>
         <div v-if="answers" class="study__optionsGrid">
           <div class="study__optionContainer" v-for="(i, answer) in answers">
             <button @click="evaluate(answer, i)" class="studyOption btn">{{answer}}</button>
->>>>>>> d3d99bf7dda80ce570e170058d4a89e5c5f16359
+
           </div>
         </div>
 

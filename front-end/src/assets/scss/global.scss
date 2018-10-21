@@ -67,9 +67,7 @@ html, body, #app, .page {
 .light {
   color: $secondary;
 }
-.dark {
-  color: $primary;
-}
+
 .page {
   height: 90vh;
 }
@@ -175,4 +173,16 @@ html, body, #app, .page {
   @include shadow--med;
   padding: 2em;
   width: 100%;
+}
+
+.dark {
+  color: $primary;
+}
+.text_box,
+.text_box:active {
+  font-size: 3em;
+  border: none;
+  border-bottom: .3rem solid $highlight;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  outline: none;
 }

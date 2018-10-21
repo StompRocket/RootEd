@@ -1,9 +1,12 @@
 <template>
   <div class="page sets">
-   <div v-for="set in sets">
-     {{set.name}}
-     <router-link :to='"/study/" + set.id'>Start Learning</router-link>
-   </div>
+    <div class="container">
+      <div v-for="set in sets" class="set">
+        <h1 class="set_heading__primary">{{set.name}}</h1>
+        <br>
+        <router-link :to='"/study/" + set.id' class="btn set_heading__secondary">Start Learning</router-link>
+      </div>
+    </div>
   </div>
 </template>
 

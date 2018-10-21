@@ -1,5 +1,63 @@
 @import "./vars.scss";
 
+
+.container {
+  margin: auto;
+  position: relative;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* Mobile first queries */
+
+/* Larger than phone */
+@media screen and (min-width: 400px) {
+  .container {
+    max-width: 380px;
+    width: auto;
+  }
+}
+
+/* Larger than large phone */
+@media screen and (min-width: 550px) {
+  .container {
+    max-width: 520px;
+    width: auto;
+  }
+
+}
+
+/* Larger than tablet */
+@media screen and (min-width: 750px) {
+  .container {
+    max-width: 720px;
+    width: auto;
+  }
+}
+
+/* Larger than desktop */
+@media screen and (min-width: 1000px) {
+  .container {
+    max-width: 900px;
+    width: auto;
+  }
+}
+
+/* Larger than Desktop HD */
+@media screen and (min-width: 1200px) {
+  .container {
+      max-width: 1000px;
+    width: auto;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+    .container {
+        max-width: 1200px;
+        width: auto;
+    }
+}
+
 html, body, #app, .page {
   height: 100%;
   width: 100%;
@@ -45,6 +103,7 @@ html, body, #app, .page {
 }
 
 .btn {
+  color: $primary;
   display: block;
   text-decoration: none;
   padding: .6em 1em;
@@ -94,4 +153,25 @@ html, body, #app, .page {
   font-size: 10rem;
   font-weight: 700;
   color: $highlight;
+}
+
+.set_heading__primary {
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+.set_heading__secondary {
+  font-size: 2rem;
+  font-weight: 500l
+}
+
+.flat_link {
+  color: $primary;
+  text-decoration-color: $highlight;
+}
+
+.set {
+  @include shadow--med;
+  padding: 2em;
+  width: 100%;
 }

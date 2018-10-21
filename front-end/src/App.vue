@@ -5,7 +5,7 @@
     </div>
     <nav class="app__nav">
       <router-link to="/sets" class="nav__brand"><img src="@/assets/img/WordMark.png" alt="Rooted"></router-link>
-      <button class="logout btn__dark" @click="logout">Logout</button>
+      <button class="btn btn__small logout btn__dark" @click="logout">Logout</button>
     </nav>
     <router-view/>
 

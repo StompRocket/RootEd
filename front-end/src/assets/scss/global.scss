@@ -115,13 +115,6 @@ html, body, #app, .page {
   overflow: hidden;
   .logout {
     margin-left: auto;
-    padding: 1% 2%;
-    font-weight: bold;
-    font-size: 0.8rem;
-    @include transition;
-    &:hover {
-      opacity: 0.8;
-    }
   }
 }
 
@@ -247,4 +240,8 @@ html, body, #app, .page {
 
 .padding_thin {
   padding: 1em;
+}
+
+.btn__small {
+  font-size: 1.3rem;
 }

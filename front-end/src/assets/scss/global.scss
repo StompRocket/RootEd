@@ -82,6 +82,8 @@ html, body, #app, .page {
   text-decoration: none;
   height: 10vh;
   align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .nav__brand {

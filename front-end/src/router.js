@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
 import SignIn from './views/signin.vue'
 import studySets from './views/StudySets.vue'
 import Studying from './views/Studying.vue'

@@ -1,9 +1,16 @@
 $primary:  #1e1e1e;
+$secondary: #555B6E;
 $highlight: #ffe74e;
-$error: #D33F49;
+$error: rgb(189, 51, 60);
 $padding: 2%;
 $background: #fcfaf5;
-$rounding: 15px;
+$rounding: 5px;
+
+@font-face {
+  font-family: Bodonio;
+  src: url("../bodonio.ttf");
+}
+
 @mixin transition {
   -webkit-transition-duration: 0.5s;
   -moz-transition-duration: 0.5s;
@@ -12,8 +19,12 @@ $rounding: 15px;
   transition-duration: 0.5s;
 }
 @mixin headingFont {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Georgia', serif;
 }
 @mixin shadow--small {
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+@mixin shadow--med {
+  box-shadow: 0 3px 9px rgba(0,0,0,0.12), 0 4px 9px rgba(0,0,0,0.24);
 }

@@ -8,7 +8,7 @@
 .sets__percentDone {
   font-size: 6vw;
   font-weight: bold;
-
+  @include headingFont;
 }
 .sets__encouragingStatement {
   font-weight: bold;

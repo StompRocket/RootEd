@@ -10,7 +10,7 @@ html, body, #app, .page {
 .page {
   height: 90vh;
 }
-.nav__brand {
+.app__nav {
   display: flex;
   @include headingFont;
   font-weight: bold;
@@ -21,6 +21,14 @@ html, body, #app, .page {
   text-decoration: none;
   height: 10vh;
   align-items: center;
+}
+
+.nav__brand {
+  @include headingFont;
+  font-weight: bold;
+  font-size: 2rem;
+  padding: 1%;
+  color: $primary;
 }
 
 .loading {
@@ -34,7 +42,7 @@ html, body, #app, .page {
 .btn {
   display: block;
   text-decoration: none;
-  padding: 1% 2%;
+  padding: .6em 1em;
   @include shadow--small;
   border: none;
   border-radius: $rounding;
@@ -43,6 +51,7 @@ html, body, #app, .page {
   @include transition;
   &:hover {
     opacity: 0.8;
+    @include shadow--med;
   }
   &:focus {
     outline: none;

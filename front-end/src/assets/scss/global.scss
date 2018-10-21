@@ -53,6 +53,8 @@ html, body, #app, .page {
   border-radius: $rounding;
   background-color: $highlight;
   font-weight: bold;
+  font-size: 1.6em;
+  cursor: pointer;
   @include transition;
   &:hover {
     opacity: 0.8;

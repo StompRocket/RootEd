@@ -6,9 +6,10 @@
         <b class="stick__bottom light">Scroll to view definition</b>
       </div>
 
-      <div class="full_height place_center">
-        <h1 class="study__heading">{{current.root}}: <b class="dark">{{current.def}}</b></h1>
-
+      <div class="full_height place_center padding_thin">
+        <div class="container">
+          <h1 class="study__heading roots__def">{{current.root}}: <b class="dark">{{current.def}}</b></h1>
+        </div>
         <div>
 
           <a class="btn btn__dark" @click="studyAgain">Study Again</a>
@@ -20,18 +21,22 @@
     </div>
     <div v-if="current.type == 'word'" id="quiz">
       <div class="full_height__minus_nav place_center">
-        <h1 class="study__heading dark">{{current.word}}</h1>
-        <div v-if="answers" class="study__optionsGrid">
-          <div class="study__optionContainer" v-for="(i, answer) in answers">
-            <button @click="evaluate(answer, i)" class="studyOption btn">{{answer}}</button>
+        <div class="container">
+          <h1 class="study__heading dark">{{current.word}}</h1>
+          <div v-if="answers" class="study__optionsGrid">
+            <div class="study__optionContainer" v-for="(i, answer) in answers">
+              <button @click="evaluate(answer, i)" class="studyOption btn">{{answer}}</button>
+            </div>
           </div>
         </div>
 
       </div>
 
       <div v-if="submited" class="full_height place_center">
-        <h1 class="study__heading">{{current.word}}: <b class="dark">{{current.def}}</b></h1>
-        <h2 class="study__wrong" v-if="userDef">You Said: {{userDef}}</h2>
+        <div class="container">
+          <h1 class="study__heading">{{current.word}}: <b class="dark">{{current.def}}</b></h1>
+          <h2 class="study__wrong" v-if="userDef">You Said: {{userDef}}</h2>
+        </div>
         <div>
 
           <a class="btn" @click="run">Continue</a>

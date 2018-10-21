@@ -15,7 +15,7 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-gap: 2%;
-  width: 70%;
+  width: 100%;
   .studyOption {
     width: 100%;
     height: 100%;
@@ -29,6 +29,12 @@
     align-items: center;
     justify-content: center;
   }
+}
+
+.study__wrong {
+  font-size: 3rem;
+  color: $error;
+  font-weight: 700;
 }
 
 /* Mobile first queries */
@@ -208,6 +214,10 @@ html, body, #app, .page {
 .dark {
   color: $primary;
 }
+.roots__def {
+  margin: 1em;
+}
+
 .text_box,
 .text_box:active {
   font-size: 3em;
@@ -215,4 +225,8 @@ html, body, #app, .page {
   border-bottom: .3rem solid $highlight;
   font-family: Georgia, 'Times New Roman', Times, serif;
   outline: none;
+}
+
+.padding_thin {
+  padding: 1em;
 }

@@ -25,14 +25,19 @@
     created() {
       let setid = this.$route.params.id
       console.log(setid, 'setId')
-      this.studySet = this.fetchSet()
-      for (let index in this.studySet.roots) {
-        this.rootsArray.push({
-          name: index,
-          def: this.studySet.roots[index].def,
-          words: this.studySet.roots[index].words
-        })
-      }
+      console.log(this.$parent.baseURL + '/set/' + setid)
+      fetch(this.$parent.baseURL + '/sets/' + setid).then(response => response.json()).then(data => {
+        console.log(data)
+        this.studySet = data;
+        for (let index in this.studySet.roots) {
+          this.rootsArray.push({
+            name: index,
+            def: this.studySet.roots[index].def,
+            words: this.studySet.roots[index].words
+          })
+        }
+      })
+
 
       /*
       setTimeout(() => {
@@ -65,51 +70,18 @@
       */
     },
     methods: {
-      fetchSet() {
-        return {
-          "words": {
-            "biology": {
-              "roots": [
-                "bio",
-                "logy"
-              ],
-              "definition": "The science of life and of living organisms, including their structure, function, growth, origin, evolution, and distribution. It includes botany and zoology and all their subdivisions."
-            },
-            "biochemistry": {
-              "roots": [
-                "bio",
-                "chem"
-              ],
-              "definition": "The study of the chemical substances and vital processes occurring in living organisms; biological chemistry; physiological chemistry."
-            }
-          },
-          "roots": {
-            "bio": {
-              def: 'life',
-              words: ['biology', 'biochemistry']
-            },
-            "logy": {
-              def: 'the study of',
-              words: ['biology', 'psychology']
-            },
-            "chem": {
-              def: 'small atom thing',
-              words: ['chemistry', 'chemical']
-            }
-          }
-        }
-      },
+
       shift(dir) {
         if (dir === 0) {
 
           if (0 == this.flashId) {
-            this.flashId = this.rootsArray.length -1
+            this.flashId = this.rootsArray.length - 1
           } else {
             this.flashId--
           }
 
         } else {
-         
+
           if (this.rootsArray.length === this.flashId + 1) {
             this.flashId = 0
           } else {

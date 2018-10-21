@@ -1,6 +1,16 @@
 $primary:  #1e1e1e;
+$highlight: #ffe74e;
+$error: #D33F49;
 $padding: 2%;
 $background: #fcfaf5;
+$rounding: 15px;
+@mixin transition {
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -ms-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
 @mixin headingFont {
   font-family: 'Playfair Display', serif;
 }

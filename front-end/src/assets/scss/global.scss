@@ -7,7 +7,9 @@ html, body, #app, .page {
   color: $primary;
 
 }
-
+.page {
+  height: 90vh;
+}
 .nav__brand {
   display: flex;
   @include headingFont;
@@ -17,11 +19,32 @@ html, body, #app, .page {
   padding: 1%;
   color: $primary;
   text-decoration: none;
+  height: 10vh;
+  align-items: center;
 }
+
 .loading {
   width: 100%;
   height: 100%;
   position: fixed;
   z-index: 9999999;
   background: $background;
+}
+
+.btn {
+  display: block;
+  text-decoration: none;
+  padding: 1% 2%;
+  @include shadow--small;
+  border: none;
+  border-radius: $rounding;
+  background-color: $highlight;
+  font-weight: bold;
+  @include transition;
+  &:hover {
+    opacity: 0.8;
+  }
+  &:focus {
+    outline: none;
+  }
 }

@@ -1,19 +1,19 @@
 @import "vars.scss";
-.set__rootContainer {
-  display: flex;
-  justify-content: space-between;
-
-
-}
-.set__name {
-  font-weight: bold;
-  font-size: 1.5rem;
-}
-.set {
-  margin: 2% 0;
-  @include shadow--small;
-  padding: 2%;
-}
 .sets {
-  padding: $padding;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.sets__percentDone {
+  font-size: 6vw;
+  font-weight: bold;
+
+}
+.sets__encouragingStatement {
+  font-weight: bold;
+  font-weight: 2vw;
+}
+.sets__continue {
+  margin-top: 2%;
 }

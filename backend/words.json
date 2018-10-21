@@ -8,212 +8,212 @@
     },
     {
         "word": "biography",
-        "definition": "An account of a person's life written, composed, or produced by another: a film biography of Adlai Stevenson; an oral biography.",
+        "definition": "an account of a person's life written, composed, or produced by another: a film biography of adlai stevenson; an oral biography.",
         "roots": [
             "bio",
             "graph"
         ]
     },
     {
-        "word": "Bionic",
+        "word": "bionic",
         "definition": "relating to bionics.",
         "roots": [
             "bio"
         ]
     },
     {
-        "word": "Biosynthesis",
+        "word": "biosynthesis",
         "definition": "the production of complex molecules within living organisms or cells.",
         "roots": [
             "bio"
         ]
     },
     {
-        "word": "Biologist",
+        "word": "biologist",
         "definition": "an expert in or student of the branch of science concerning living organisms.",
         "roots": [
             "bio"
         ]
     },
     {
-        "word": "Hypercritical",
+        "word": "hypercritical",
         "definition": "excessively and unreasonably critical, especially of small faults.",
         "roots": [
-            "Hyper"
+            "hyper"
         ]
     },
     {
-        "word": "Hypersensitive",
+        "word": "hypersensitive",
         "definition": "abnormally or excessively sensitive, either psychologically or in physical response.",
         "roots": [
-            "Hyper"
+            "hyper"
         ]
     },
     {
-        "word": "Hyperthermia",
+        "word": "hyperthermia",
         "definition": "the condition of having a body temperature greatly above normal.",
         "roots": [
-            "Hyper"
+            "hyper"
         ]
     },
     {
-        "word": "Hypersonic",
-        "definition": "relating to speeds of more than five times the speed of sound (Mach 5).",
+        "word": "hypersonic",
+        "definition": "relating to speeds of more than five times the speed of sound (mach 5).",
         "roots": [
-            "Hyper"
+            "hyper"
         ]
     },
     {
-        "word": "Kilogram",
-        "definition": "the SI unit of mass, equivalent to the international standard kept at Sèvres near Paris (approximately 2.205 lb).",
+        "word": "kilogram",
+        "definition": "the si unit of mass, equivalent to the international standard kept at sèvres near paris (approximately 2.205 lb).",
         "roots": [
-            "Kilo"
+            "kilo"
         ]
     },
     {
-        "word": "Kilometer",
+        "word": "kilometer",
         "definition": "a metric unit of measurement equal to 1,000 meters (approximately 0.62 miles).",
         "roots": [
-            "Kilo"
+            "kilo"
         ]
     },
     {
-        "word": "Kilowatt",
+        "word": "kilowatt",
         "definition": "a measure of 1,000 watts of electrical power.",
         "roots": [
-            "Kilo"
+            "kilo"
         ]
     },
     {
-        "word": "Kilobyte",
+        "word": "kilobyte",
         "definition": "a unit of memory or data equal to 1,024 (210) bytes.",
         "roots": []
     },
     {
-        "word": "Milligram",
+        "word": "milligram",
         "definition": "one thousandth of a gram.",
         "roots": [
-            "Milli"
+            "milli"
         ]
     },
     {
-        "word": "Millimeter",
+        "word": "millimeter",
         "definition": "one thousandth of a meter (0.039 in.).",
         "roots": [
-            "Milli"
+            "milli"
         ]
     },
     {
-        "word": "Milliwatt",
+        "word": "milliwatt",
         "definition": "one thousandth of a watt.",
         "roots": [
-            "Milli"
+            "milli"
         ]
     },
     {
-        "word": "Milliliter",
+        "word": "milliliter",
         "definition": "one thousandth of a liter (0.002 pint).",
         "roots": [
-            "Milli"
+            "milli"
         ]
     },
     {
-        "word": "Semiconductor",
+        "word": "semiconductor",
         "definition": "a solid substance that has a conductivity between that of an insulator and that of most metals.",
         "roots": [
-            "Semi"
+            "semi"
         ]
     },
     {
-        "word": "Semiautomatic",
+        "word": "semiautomatic",
         "definition": "partially automatic.",
         "roots": [
-            "Semi"
+            "semi"
         ]
     },
     {
-        "word": "Semifinal",
+        "word": "semifinal",
         "definition": "a game or round immediately preceding the final, the winner of which goes on to the final.",
         "roots": [
-            "Semi"
+            "semi"
         ]
     },
     {
-        "word": "Semisweet",
+        "word": "semisweet",
         "definition": "(of food) only slightly sweetened.",
         "roots": [
-            "Semi"
+            "semi"
         ]
     },
     {
-        "word": "Semicircle",
+        "word": "semicircle",
         "definition": "a half of a circle or of its circumference.",
         "roots": [
-            "Semi"
+            "semi"
         ]
     },
     {
-        "word": "Photograph",
+        "word": "photograph",
         "definition": "a picture made using a camera, in which an image is focused onto film or other light-sensitive material and then made visible and permanent by chemical treatment, or stored digitally.",
-        "roots": [
-            "Graph"
-        ]
-    },
-    {
-        "word": "Seismograph",
-        "definition": "an instrument that measures and records details of earthquakes, such as force and duration",
-        "roots": [
-            "Graph"
-        ]
-    },
-    {
-        "word": "Paragraph",
-        "definition": "a distinct section of a piece of writing, usually dealing with a single theme and indicated by a new line, indentation, or numbering.",
-        "roots": [
-            "Graph"
-        ]
-    },
-    {
-        "word": "Graph",
-        "definition": "a diagram showing the relation between variable quantities, typically of two variables, each measured along one of a pair of axes at right angles.",
-        "roots": [
-            "Graph"
-        ]
-    },
-    {
-        "word": "Pictograph",
-        "definition": "a pictorial symbol for a word or phrase. Pictographs were used as the earliest known form of writing, examples having been discovered in Egypt and Mesopotamia from before 3000 BC.",
         "roots": [
             "graph"
         ]
     },
     {
-        "word": "Homophone",
+        "word": "seismograph",
+        "definition": "an instrument that measures and records details of earthquakes, such as force and duration",
+        "roots": [
+            "graph"
+        ]
+    },
+    {
+        "word": "paragraph",
+        "definition": "a distinct section of a piece of writing, usually dealing with a single theme and indicated by a new line, indentation, or numbering.",
+        "roots": [
+            "graph"
+        ]
+    },
+    {
+        "word": "graph",
+        "definition": "a diagram showing the relation between variable quantities, typically of two variables, each measured along one of a pair of axes at right angles.",
+        "roots": [
+            "graph"
+        ]
+    },
+    {
+        "word": "pictograph",
+        "definition": "a pictorial symbol for a word or phrase. pictographs were used as the earliest known form of writing, examples having been discovered in egypt and mesopotamia from before 3000 bc.",
+        "roots": [
+            "graph"
+        ]
+    },
+    {
+        "word": "homophone",
         "definition": "each of two or more words having the same pronunciation but different meanings, origins, or spelling, e.g., new and knew.",
         "roots": [
-            "Homo"
+            "homo"
         ]
     },
     {
-        "word": "Homosexual",
+        "word": "homosexual",
         "definition": "(of a person) sexually attracted to people of one's own sex.",
         "roots": [
-            "Homo"
+            "homo"
         ]
     },
     {
-        "word": "Homograph",
+        "word": "homograph",
         "definition": "each of two or more words spelled the same but not necessarily pronounced the same and having different meanings and origins",
         "roots": [
-            "Homo",
-            "Graph"
+            "homo",
+            "graph"
         ]
     },
     {
-        "word": "Homogeneous",
+        "word": "homogeneous",
         "definition": "of the same kind; alike.",
         "roots": [
-            "Homo"
+            "homo"
         ]
     }
 

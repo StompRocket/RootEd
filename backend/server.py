@@ -1,4 +1,5 @@
 from flask import Flask
+from werkzeug.serving import make_ssl_devcert
 from flask_cors import CORS
 import json
 import db
@@ -6,6 +7,8 @@ import os
 
 app = Flask(__name__)
 CORS(app)
+
+cert = make_ssl_devcert("server.key", host="localhost")
 
 @app.route("/")
 def return_all():

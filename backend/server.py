@@ -9,7 +9,21 @@ CORS(app)
 
 @app.route("/")
 def return_all():
-    return db.dump()
+    return json.dumps(db.dump())
+
+@app.route("/possible/<word>")
+def get_possible_defs(word):
+    # search through this word's roots and choose
+    # fairly similar words
+    roots = []
+    for root in db.get_word_roots(word):
+        if root != "":
+            roots.append(root)
+    words = []
+    for r in roots:
+        for rt in db.get_words_with_root(r):
+            words.append(db.get_word_definition(rt))
+    return json.dumps(words)
 
 def data_from_words(words):
     rwords = {}
@@ -43,5 +57,5 @@ def get_root_words(root):
     return json.dumps(db.get_words_with_root(root))
 
 if __name__ == "__main__":
-    port = int(os.environ.get('PORT', 8080))
+    port = int(os.environ.get('PORT', 8081))
     app.run(host='127.0.0.1', port=port, debug=True)

@@ -113,6 +113,16 @@ html, body, #app, .page {
   align-items: center;
   white-space: nowrap;
   overflow: hidden;
+  .logout {
+    margin-left: auto;
+    padding: 1% 2%;
+    font-weight: bold;
+    font-size: 0.8rem;
+    @include transition;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
 }
 
 .nav__brand {
@@ -134,6 +144,14 @@ html, body, #app, .page {
   position: fixed;
   z-index: 9999999;
   background: $background;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .loading__header {
+    font-weight: bold;
+    font-size: 2rem;
+  }
 }
 
 .btn {

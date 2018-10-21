@@ -4,9 +4,11 @@ import SignIn from './views/signin.vue'
 import studySets from './views/StudySets.vue'
 import Studying from './views/Studying.vue'
 import Test from './views/Test.vue'
+import firebase from 'firebase/app'
+import 'firebase/auth'
 Vue.use(Router)
 
-export default new Router({
+let router =  new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
@@ -18,17 +20,38 @@ export default new Router({
     {
       path: '/sets',
       name: 'Study Sets',
-      component: studySets
+      component: studySets,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/study/:id',
       name: 'studying',
-      component: Studying
+      component: Studying,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/test',
       name: 'test',
-      component: Test
+      component: Test,
+      meta: {
+        requiresAuth: true
+      }
     }
   ]
 })
+router.beforeEach((to, from, next) => {
+ if (to.meta.requiresAuth) {
+   if (firebase.auth().currentUser) {
+     next()
+   } else {
+     next('/')
+   }
+ } else {
+   next()
+ }
+})
+export default router

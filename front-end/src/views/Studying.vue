@@ -35,6 +35,7 @@
       <div v-if="submited" class="full_height place_center">
         <div class="container">
           <h1 class="study__heading">{{current.word}}: <b class="dark">{{current.def}}</b></h1>
+
           <h2 class="study__wrong" v-if="userDef">You Said: {{userDef}}</h2>
         </div>
         <div>
@@ -50,6 +51,7 @@
 <script>
   import firebase from 'firebase/app'
   import 'firebase/database'
+
   export default {
     name: "studying",
     data() {
@@ -66,11 +68,23 @@
     },
     created() {
       this.$parent.loading = true
-      fetch(this.$parent.baseURL + '/set/' + this.$route.params.id).then(response => response.json()).then(data => {
-        this.set = data;
-        this.$parent.loading = false
-        this.run()
+      firebase.database().ref('/userStates/' + firebase.auth().currentUser.uid + '/').once('value').then(snap => {
+        if (snap.val()) {
+          this.combined = snap.val()
+          this.fistRun = false
+          this.$parent.loading = false
+          console.log('loaded from server')
+          this.run()
+        } else {
+          fetch(this.$parent.baseURL + '/set/' + this.$route.params.id).then(response => response.json()).then(data => {
+            this.set = data;
+            this.$parent.loading = false
+            console.log('loaded from new')
+            this.run()
+          })
+        }
       })
+
     },
     methods: {
       evaluate(answer, i) {
@@ -117,6 +131,7 @@
           this.firstRun = false
           console.log('computning')
         }
+        firebase.database().ref('/userStates/' + firebase.auth().currentUser.uid + '/').set(this.combined)
         this.userDef = false
 
         this.current = this.getWeightedQuestion()
@@ -125,33 +140,36 @@
       getWeightedQuestion() {
         let weighted = []
         for (let index in this.combined) {
-          let item = this.combined[index]
-          //console.log(item)
-          for (let i = 0; i < item.weight; i++) {
-            weighted.push(item)
+          console.log(this.combined[index], 'item')
+          if (this.combined[index].weight > 0) {
+            for (let i = 0; i < this.combined[index].weight; i++) {
+              weighted.push(this.combined[index])
+            }
           }
 
+
         }
+        console.log(weighted, 'weighted')
         // console.log(weighted)
         let randomNumber = Math.floor(Math.random() * (weighted.length - 1)) + 0
-        let item = weighted[randomNumber]
-        for (let i = 0; i <= 5; i++) {
-          randomNumber = Math.floor(Math.random() * (weighted.length - 1)) + 0
-          item = weighted[randomNumber]
+        let word = weighted[randomNumber]
+        if (typeof word == 'object') {
+          //console.log(word, randomNumber, weighted.length)
+          if (word.type == 'word') {
+            fetch(this.$parent.baseURL + '/possible/' + word.word).then(res => res.json()).then(possibleDefs => {
+            //  console.log(possibleDefs)
+
+              //item.answers = possibleDefs
+
+              this.answers = possibleDefs
+
+            })
+            return word
+          } else {
+            return word
+          }
         }
-        if (item.type == 'word') {
-          fetch(this.$parent.baseURL + '/possible/' + item.word).then(res => res.json()).then(possibleDefs => {
-            console.log(possibleDefs)
 
-            item.answers = possibleDefs
-
-            this.answers = possibleDefs
-
-          })
-          return item
-        } else {
-          return item
-        }
 
 
         //console.log(item)

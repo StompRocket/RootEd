@@ -1,17 +1,17 @@
 <template>
   <div class="page study">
     <div class="full_height__minus_nav place_center">
-      <h1 class="study__heading">Bio</h1>
+      <h1 class="study__heading">{{current.root}}</h1>
       <b class="stick__bottom light">Scroll to view definition</b>
     </div>
 
     <div class="full_height place_center">
-      <h1 class="study__heading">Bio: <b class="dark">Life</b></h1>
+      <h1 class="study__heading">{{current.root}}: <b class="dark">{{current.def}}</b></h1>
 
       <div clsas="stick__bottom">
-        <a class="btn btn__dark">Study Again</a>
+        <a class="btn btn__dark" @click="studyAgain">Study Again</a>
         <br>
-        <a class="btn">I got it right</a>
+        <a class="btn" @click="right">I got it right</a>
       </div>
     </div>
   </div>
@@ -24,7 +24,7 @@
       return {
         set: {},
         combined: [],
-        current: {}
+        current: []
       }
     },
     created() {
@@ -33,7 +33,7 @@
         this.set = data;
         this.$parent.loading = false
         this.compute()
-        this.getWeightedQuestion()
+        this.current = this.getWeightedQuestion()
       })
     },
     methods: {
@@ -48,6 +48,21 @@
 
         }
         console.log(weighted)
+        let randomNumber = Math.floor(Math.random() * (weighted.length - 1)) + 0
+        let item = weighted[randomNumber]
+        console.log(item)
+        return item
+      },
+      studyAgain() {
+        if (this.current.type === 'root') {
+          this.combined[this.current.root].weight++;
+          console.log(this.combined[this.current.root].weight)
+          fetch(this.$parent.baseURL + '/root/' + this.current.root).then(res => res.json()).then(wordList => {
+            console.log(wordList)
+          })
+        }
+      },
+      right() {
 
       },
       compute() {
@@ -56,9 +71,10 @@
           let rootData = {
             root: root,
             def: def,
-            weight: 5
+            weight: 5,
+            type: 'root'
           }
-          this.combined.push(rootData)
+          this.combined[root] = rootData
         }
         for (let word in this.set.words) {
           let def = this.set.words[word].definition
@@ -67,9 +83,10 @@
             word: word,
             roots: roots,
             def: def,
-            weight: 0
+            weight: 0,
+            type: 'word'
           }
-          this.combined.push(wordData)
+          this.combined[word] = wordData
         }
       }
     }

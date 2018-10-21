@@ -25,15 +25,16 @@ def get_possible_defs(word):
         for rt in db.get_words_with_root(r):
             if not rt == word:
                 words[db.get_word_definition(rt)] = False
-    
+
     if len(words) < 3:
         # choose a random thing
         num_left = 3 - len(words)
         it = 0
         while it < num_left:
             for w in db.get_all_defs():
-                if it < num_left and not w in words:
-                    words[w] = False
+                print("THIS IS THE DOUBLE YOU", w)
+                if it < num_left and not w["definition"] in words.keys():
+                    words[w["definition"]] = False
                     it += 1
 
     # truncate the dict to only 4 items

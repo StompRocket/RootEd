@@ -9,7 +9,7 @@
       <div class="full_height place_center">
         <h1 class="study__heading">{{current.root}}: <b class="dark">{{current.def}}</b></h1>
 
-        <div clsas="stick__bottom">
+        <div>
 
           <a class="btn btn__dark" @click="studyAgain">Study Again</a>
           <br>
@@ -21,13 +21,13 @@
     <div v-if="current.type == 'word'" id="quiz">
       <div class="full_height__minus_nav place_center">
         <h1 class="study__heading dark">{{current.word}}</h1>
-        <input v-model="userDef" class="text_box" placeholder="Definition">
+        <input @keypress.enter="evaluate" v-model="userDef" class="text_box" placeholder="Definition">
       </div>
 
-      <div class="full_height place_center">
+      <div v-if="submited" class="full_height place_center">
         <h1 class="study__heading">{{current.word}}: <b class="dark">{{current.def}}</b></h1>
 
-        <div clsas="stick__bottom">
+        <div class="stick__bottom">
 
           <a class="btn btn__dark" @click="studyAgain">Study Again</a>
           <br>
@@ -48,7 +48,8 @@
         combined: {},
         current: [],
         firstRun: true,
-        userDef: ''
+        userDef: '',
+        submited: false
       }
     },
     created() {
@@ -60,6 +61,10 @@
       })
     },
     methods: {
+      evaluate() {
+        let userDef = this.userDef
+        let distance = levenshtein(userDef, this.current.def);
+      },
       run() {
         window.scrollTo(0, 0)
         if (this.firstRun) {

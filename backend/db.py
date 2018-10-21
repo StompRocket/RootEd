@@ -91,6 +91,14 @@ def get_sets():
 
     return prot
 
+def get_all_defs():
+    print("BEFORE WORDLIST BEGINSF DKN:ASNFDJSF:KDSN FDJSFNJ:SDFJDSJF")
+    wordlist = words.find({})
+    print("WORDLIST", wordlist)
+    for word in wordlist:
+        print("WORD IN WORDLIST", word)
+        yield word
+
 def get_words_with_root(root):
     # i've been writing too much clojure i indent
     # like this now e

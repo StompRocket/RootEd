@@ -1,19 +1,39 @@
 <template>
   <div class="page study">
-    <div class="full_height__minus_nav place_center">
-      <h1 class="study__heading">{{current.root}}</h1>
-      <b class="stick__bottom light">Scroll to view definition</b>
+    <div id="flashcard">
+      <div class="full_height__minus_nav place_center">
+        <h1 class="study__heading">{{current.root}}</h1>
+        <b class="stick__bottom light">Scroll to view definition</b>
+      </div>
+
+      <div class="full_height place_center">
+        <h1 class="study__heading">{{current.root}}: <b class="dark">{{current.def}}</b></h1>
+
+        <div clsas="stick__bottom">
+
+          <a class="btn btn__dark" @click="studyAgain">Study Again</a>
+          <br>
+          <a class="btn" @click="right">I got it right</a>
+
+        </div>
+      </div>
     </div>
+    <div id="quiz">
+      <div class="full_height__minus_nav place_center">
+        <h1 class="study__heading dark">Current Word</h1>
+        <input class="text_box" placeholder="Definition">
+      </div>
 
-    <div class="full_height place_center">
-      <h1 class="study__heading">{{current.root}}: <b class="dark">{{current.def}}</b></h1>
+      <div class="full_height place_center">
+        <h1 class="study__heading">{{current.root}}: <b class="dark">{{current.def}}</b></h1>
 
-      <div clsas="stick__bottom">
+        <div clsas="stick__bottom">
 
-        <a class="btn btn__dark" @click="studyAgain">Study Again</a>
-        <br>
-        <a class="btn" @click="right">I got it right</a>
+          <a class="btn btn__dark" @click="studyAgain">Study Again</a>
+          <br>
+          <a class="btn" @click="right">I got it right</a>
 
+        </div>
       </div>
     </div>
   </div>

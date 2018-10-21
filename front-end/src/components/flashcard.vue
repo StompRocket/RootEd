@@ -1,7 +1,7 @@
 <template>
-  <div class="flashcard" @click="frontshow=!frontshow">
+  <div class="flashcard" @click="frontshow = !frontshow;">
     <div class="front-text" v-if="frontshow">
-      {{front}}
+      root: {{front}}
     </div>
     <div class="back-text" v-if="!frontshow">
       {{back}}
@@ -9,6 +9,7 @@
   </div>
 </template>
 <script>
+import Vue from "vue";
 export default {
   name: "flashcard",
   props: ["front", "back"],
@@ -16,6 +17,11 @@ export default {
     return {
       frontshow: true
     };
+  },
+  watch: {
+    front(){
+      this.frontshow = true;
+    }
   }
 };
 </script>

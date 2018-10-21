@@ -15,18 +15,16 @@ def data_from_words(words):
     rwords = {}
     rroots = {}
     for word in words:
-        print(word)
         rwords[word] = {
                 "roots": [ w for w in db.get_word_roots(word) ],
                 "definition": db.get_word_definition(word)
             }
         for root in db.get_word_roots(word):
             rroots[root] = db.get_root_definition(root)
-
     return {
         "words": rwords,
-        "roots": rroots
-    }
+        "roots": rroots}
+
 @app.route("/words/<words>")
 def return_json(words):
     words = words.split("-")
@@ -35,8 +33,8 @@ def return_json(words):
 @app.route("/sets")
 def get_set():
     return json.dumps(db.get_sets())
-@app.route("/set/<set_id>")
 
+@app.route("/set/<set_id>")
 def set_data(set_id):
     return json.dumps(data_from_words(db.get_study_set(set_id)))
 

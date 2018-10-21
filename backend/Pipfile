@@ -5,9 +5,10 @@ name = "pypi"
 
 [packages]
 pymongo = "*"
-bottle = "*"
+flask = "*"
+flask_cors = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.7"
+python_version = "3.6"

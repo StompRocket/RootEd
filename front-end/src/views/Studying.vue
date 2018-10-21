@@ -21,9 +21,12 @@
   export default {
     name: "studying",
     data() {
-      return {}
+      return {
+
+      }
     },
     created() {
+
     }
   }
 </script>

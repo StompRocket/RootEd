@@ -1,8 +1,9 @@
 <template>
   <div class="page sets">
-    <h1 class="sets__percentDone">85%</h1>
-    <p class="sets__encouragingStatement">You're almost there!</p>
-    <button class="btn sets__continue">Continue</button>
+   <div v-for="set in sets">
+     {{set.name}}
+     <router-link :to='"/study/" + set.id'>Start Learning</router-link>
+   </div>
   </div>
 </template>
 
@@ -17,7 +18,20 @@
       };
     },
     created() {
-
+      fetch(this.$parent.baseURL + '/sets').then(response => response.json()).then(sets => {
+        console.log(sets)
+        for (let id in sets) {
+          let name = sets[id]
+          fetch(this.$parent.baseURL + '/set/'+id).then(response => response.json()).then(setData => {
+            let set = {
+              name: name,
+              id: id,
+              data: setData
+            }
+            this.sets.push(set)
+          })
+        }
+      })
 
     }
   };

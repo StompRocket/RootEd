@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "firebase": "^5.5.5",
+    "js-levenshtein": "^1.1.4",
     "minireset.css": "0.0.3",
     "register-service-worker": "^1.0.0",
     "vue": "^2.5.17",

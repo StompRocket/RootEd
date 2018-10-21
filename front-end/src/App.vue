@@ -4,7 +4,7 @@
       <h1>Loading...</h1>
     </div>
     <nav class="app__nav">
-      <router-link to="/sets" class="nav__brand">Rooted Vocab</router-link>
+      <router-link to="/sets" class="nav__brand"><img src="@/assets/img/WordMark.png" alt="Rooted"></router-link>
     </nav>
     <router-view/>
 

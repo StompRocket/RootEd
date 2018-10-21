@@ -9,7 +9,7 @@
       <div class="full_height place_center">
         <h1 class="study__heading">{{current.root}}: <b class="dark">{{current.def}}</b></h1>
 
-        <div clsas="stick__bottom">
+        <div>
 
           <a class="btn btn__dark" @click="studyAgain">Study Again</a>
           <br>
@@ -21,13 +21,16 @@
     <div v-if="current.type == 'word'" id="quiz">
       <div class="full_height__minus_nav place_center">
         <h1 class="study__heading dark">{{current.word}}</h1>
-        <input v-model="userDef" class="text_box" placeholder="Definition">
+        <div class="study__optionsGrid">
+          <a class="studyOption btn" v-for="answer in current.answers">{{answer}}</a>
+        </div>
+
       </div>
 
-      <div class="full_height place_center">
+      <div v-if="submited" class="full_height place_center">
         <h1 class="study__heading">{{current.word}}: <b class="dark">{{current.def}}</b></h1>
 
-        <div clsas="stick__bottom">
+        <div class="stick__bottom">
 
           <a class="btn btn__dark" @click="studyAgain">Study Again</a>
           <br>
@@ -48,7 +51,8 @@
         combined: {},
         current: [],
         firstRun: true,
-        userDef: ''
+        userDef: '',
+        submited: false
       }
     },
     created() {
@@ -60,6 +64,9 @@
       })
     },
     methods: {
+      evaluate(answer) {
+
+      },
       run() {
         window.scrollTo(0, 0)
         if (this.firstRun) {
@@ -87,8 +94,23 @@
         if (item == this.current) {
           item = weighted[randomNumber]
         }
-        //console.log(item)
+        if (item.type == 'word') {
+          fetch(this.$parent.baseURL + '/possible/' + item.word).then(res => res.json()).then(possibleDefs => {
+            console.log(possibleDefs)
+            item.answers = possibleDefs
+            this.current.answers = []
+            for (let index in possibleDefs) {
+              this.current.answers.push(possibleDefs[index])
+            }
+
+          })
+
+        }
         return item
+
+
+        //console.log(item)
+
       },
       studyAgain() {
         if (this.current.type === 'root') {

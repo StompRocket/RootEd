@@ -27,7 +27,6 @@ structure = {
     }
 }
 
-print(json.dumps(structure))
 
 client = MongoClient()
 db = client.rootedvocab
@@ -40,8 +39,6 @@ def load_local(json_file):
     with open(json_file, "r") as data:
         f = data.read()
         data.close()
-
-    print(f)
     for i in json.loads(f):
         yield i
 
@@ -53,16 +50,32 @@ for word in load_local("words.json"):
     words.insert_one(word)
 
 for study_set in load_local("sets.json"):
-    study_sets.insert_one(study_set)
+    study_sets.insert_one({
+        "id": study_set["id"],
+        "name": study_set["name"],
+        "words": study_set["words"]
+    })
 
 def get_word_definition(word):
-    return words.find_one({"word": word})["definition"]
+    try:
+        return words.find_one({"word": word})["definition"]
+    except TypeError:
+        return ""
 
 def get_word_roots(word):
-    for root in words.find_one({"word": word})["roots"]:
-        yield root
+    print("WORD {}".format(word))
+    try:
+        for root in words.find_one({"word": word})["roots"]:
+            yield root
+    except TypeError:
+        yield ""
+
 def get_root_definition(root):
-    return roots.find_one({"root": root})["definition"]
+    print("ROOT{}".format(root))
+    try:
+        return roots.find_one({"root": root})["definition"]
+    except TypeError:
+        return ""
 
 def get_study_set(set_id):
     return study_sets.find_one({"id": set_id})["words"]
@@ -70,6 +83,17 @@ def get_study_set(set_id):
 def get_sets():
     prot = {}
     for study_set in study_sets.find({}):
-        prot[study_set["id"]] = study_set["words"]
+        try:
+            prot[study_set["id"]] = study_set["name"]
+        except KeyError:
+            prot[study_set["id"]] = "Unnamed Set"
 
     return prot
+
+def get_words_with_root(root):
+    # i've been writing too much clojure i indent
+    # like this now e
+    return list(set(
+        [ word["word"]
+          for word in
+          words.find({"roots": root})]))

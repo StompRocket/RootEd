@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import SignIn from './views/signin.vue'
 import studySets from './views/StudySets.vue'
 import Studying from './views/Studying.vue'
+import Test from './views/Test.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -24,6 +25,11 @@ export default new Router({
       path: '/study/:id',
       name: 'studying',
       component: Studying
+    },
+    {
+      path: '/test',
+      name: 'test',
+      component: Test
     }
   ]
 })

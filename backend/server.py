@@ -7,7 +7,6 @@ import os
 app = Flask(__name__)
 CORS(app)
 
-
 @app.route("/")
 def return_all():
     return json.dumps(db.dump())

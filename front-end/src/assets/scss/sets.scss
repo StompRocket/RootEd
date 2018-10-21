@@ -1,0 +1,11 @@
+@import "vars.scss";
+.set__rootContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.set__name {
+  font-weight: bold;
+}
+.set {
+  margin: 2% 0;
+}

@@ -1,6 +1,8 @@
 <template>
   <div class="page sets">
     <div class="container">
+      <br>
+      <br>
       <div v-for="set in sets" class="set">
         <h1 class="set_heading__primary">{{set.name}}</h1>
         <br>

@@ -101,9 +101,21 @@
       },
       shift(dir) {
         if (dir === 0) {
-          this.flashId--
+
+          if (0 == this.flashId) {
+            this.flashId = this.rootsArray.length -1
+          } else {
+            this.flashId--
+          }
+
         } else {
-          this.flashId++
+         
+          if (this.rootsArray.length === this.flashId + 1) {
+            this.flashId = 0
+          } else {
+            this.flashId++
+          }
+
         }
       }
     },

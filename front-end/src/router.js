@@ -21,7 +21,7 @@ export default new Router({
       component: studySets
     },
     {
-      path: '/study',
+      path: '/study/:id',
       name: 'studying',
       component: Studying
     }
